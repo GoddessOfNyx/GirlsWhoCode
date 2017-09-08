@@ -1,0 +1,52 @@
+from random import *
+from time import sleep
+from os import system
+
+###
+#Level 1
+###
+
+# #declared in mem the list of names
+# nameList = ["Jennifer", "Cynthia", "Vincent", "Max", "Daniel", "Emma"]
+#
+# #Generates a random name.
+# nameListLen = len(nameList)
+# x = randint(0, nameListLen - 1)
+# print(nameList[x])
+
+#Level 1 User Input Style
+
+# userName = ""
+# nameList = []
+# while True:
+#     userName = input("Please enter a name, or enter '-1' when finished:: ")
+#     if userName != "-1":
+#         nameList.append(userName)
+#     else:
+#         break
+# randomName = input("Would you like a random name?: ('yes' or 'no'):: ")
+# nameListLen = len(nameList)
+# x = randint(0, nameListLen - 1)
+#
+# print(nameList[x])
+
+###
+#Level 2
+###
+
+mainDishes = ['A pizza', 'Chicken Parmesean', 'BLT', 'spaghetti and meat sauce']
+dessert = ['cookies', 'ice cream cone', 'oreo blizzard']
+
+print("Welcome to this really shitty restaurant")
+print("")
+print("So you're served one side dish, one main course, and some dessert")
+print("It will be chosen random for you. Have fun")
+sleep(3)
+prepare = input("Are you ready for your food?")
+if prepare == "yes":
+else:
+    print("get out")
+
+def sidesChoice:
+    sides = ['mashed potatoes', 'salad', 'fries', 'tator tots', 'grilled zucchini']
+    
