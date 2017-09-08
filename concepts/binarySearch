@@ -1,0 +1,29 @@
+def binarySearch(list, x):
+    
+    
+    #Finding the length of the list
+    lenList = len(list)
+    
+    while (lenList != 1): #slicing gives you what you want
+        midIndx = lenList // 2
+        if (x == list[midIndx]): 
+            return True
+        elif (list[midIndx] > x): #if it's greater than splice the left
+              list = list[:midIndx]
+        else:                    #if it's less than, splice the right
+              list = list[midIndx+1:]          
+        lenList = len(list)
+    
+    if lenList[0] == x:
+        return True
+    else:
+        return False
+              
+list = ['a', 'g', 'm', 't', 'v', 'y']
+x = 'v'
+              
+print(binarySearch(list, x))
+
+#change list to somethng else, a new name, you may override the list class
+
+    
