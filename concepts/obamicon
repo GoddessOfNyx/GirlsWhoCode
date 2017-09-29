@@ -1,0 +1,41 @@
+from PIL import Image
+#
+# print("Welcome to this random thing where we add filters to a cat")
+# print("")
+# filter = input("Would you like the 'obamicon' filter or the 'Columbia' Uni filter: ")
+# if input == "obamicon":
+darkColor = (0, 51, 76) #sets the darkest color to darkBlue
+midDColor = (217, 26, 33) #sets the middle/dark color to red
+midLColor = (112, 150, 158) #sets the middle/light color to lightBlue
+lightColor = (252, 227, 166) #sets the lightest color to yellow
+# # elif input == "columbia":
+# darkColor = (0, 43, 127) #sets to dark blue
+# midDColor = (0, 56, 168) # a little bit lighter than dark blue
+# midLColor = (117, 170, 219) # a blue that's not light but not dark lol
+# lightColor = (196, 216, 226) # a color that's rly close to white but blue white ya know
+
+# Import image.
+my_image = Image.open("max.jpg")
+image_list = my_image.getdata() #each pixel is represented in the form (red value, green value, blue value, transparency).
+#You don't need the fourth value.
+image_list = list(image_list) #Turns the sequence of pixels above into a list. The list can be iterated through in a loop.
+
+recolored = [] #list that will hold the pixel data for the new image.
+
+#YOUR CODE to loop through the original list of pixels and build a new list based on intensity should go here.
+for pixel in image_list: #loop will go through each pixel in the list
+    intensityValue = sum(pixel) #gets the intensity by the sum of thr rbg value
+    if intensityValue < 182: #checks if intensity is less than 182
+        recolored.append(darkColor) #if this is true, then the pixel is colored the darkest color
+    elif 180 <= intensityValue and intensityValue < 364: #checks if intensity is between 180 and 364
+        recolored.append(midDColor) #if true, then the pixel is middle dark color
+    elif 364 <= intensityValue and intensityValue <= 546: #checks if intensity is between 364 and 546
+        recolored.append(midLColor) #if true, then the pixel is colored the middle light color
+    elif intensityValue > 546: #checks if intensity is greater than 546
+        recolored.append(lightColor) #if true, then the pixel is colored the lightest
+
+# Create a new image using the recolored list.
+new_image = Image.new("RGB", my_image.size) #new image
+new_image.putdata(recolored) #Adds the data from the recolored list to the image.
+new_image.show() #show the new image on the screen
+new_image.save("recolored2.jpg", "jpeg") #save the new image as "recolored.jpg"
